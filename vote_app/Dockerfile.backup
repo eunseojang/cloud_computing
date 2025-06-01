@@ -1,0 +1,9 @@
+FROM python:3.10-slim
+
+WORKDIR /backup
+
+COPY backup.py ./
+
+RUN pip install boto3
+
+CMD ["bash", "-c", "while true; do python backup.py; sleep 3600; done"]

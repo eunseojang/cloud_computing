@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>점심 투표</title>
+  </head>
+  <body>
+    <h1>오늘 점심 뭐 먹을래요?</h1>
+    <form method="POST">
+      <button name="vote" value="피자">🍕 피자</button>
+      <button name="vote" value="라면">🍜 라면</button>
+      <button name="vote" value="햄버거">🍔 햄버거</button>
+    </form>
+
+    <h2>실시간 결과:</h2>
+    <ul>
+      {% for option, count in vote_counts.items() %}
+      <li>{{ option }}: {{ count }}표</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

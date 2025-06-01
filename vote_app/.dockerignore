@@ -1,0 +1,3 @@
+__pycache__/
+*.pyc
+vote_results.db

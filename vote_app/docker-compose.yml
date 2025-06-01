@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  vote_web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+    volumes:
+      - ./vote_results.db:/app/vote_results.db # 웹 서버도 이 DB 공유함
+
+  vote_backup:
+    build:
+      context: .
+      dockerfile: Dockerfile.backup
+    env_file:
+      - .env
+    depends_on:
+      - vote_web
+    volumes:
+      - ./vote_results.db:/backup/vote_results.db # 백업도 같은 파일 사용
