@@ -1,7 +1,65 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
     <title>점심 투표</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        background-color: #f4f6f8;
+        padding: 40px;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      form button {
+        font-size: 1.2em;
+        padding: 12px 24px;
+        margin: 10px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button[value="피자"] {
+        background-color: #ff6b6b;
+        color: white;
+      }
+
+      button[value="라면"] {
+        background-color: #f5a623;
+        color: white;
+      }
+
+      button[value="햄버거"] {
+        background-color: #4a90e2;
+        color: white;
+      }
+
+      button:hover {
+        opacity: 0.85;
+      }
+
+      h2 {
+        margin-top: 40px;
+        color: #555;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        font-size: 1.1em;
+        color: #222;
+      }
+
+      li {
+        margin: 6px 0;
+      }
+    </style>
   </head>
   <body>
     <h1>오늘 점심 뭐 먹을래요?</h1>
