@@ -1,3 +1,6 @@
+## Github Link
+https://github.com/eunseojang/cloud_computing
+
 
 # 🗳 클라우드 기반 투표 시스템 (Docker + AWS)
 간단한 투표 애플리케이션을 Docker + AWS(Amazon S3, CloudWatch Logs, SNS) 기반으로 만든 프로젝트입니다.
