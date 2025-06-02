@@ -11,6 +11,37 @@
 - CloudWatch 로그 연동 (서버 로그 기록)
 - SNS 연동 (특정 이벤트 시 알림 전송)
 
+## 🧑‍💻 구현 방법
+
+
+📦 도커 환경 구성
+
+- Dockerfile로 웹앱(vote_web)과 백업 컨테이너(vote_backup) 각각 빌드
+
+- docker-compose.yml로 두 컨테이너를 함께 실행, 동일 네트워크에서 통신
+  
+
+📝 .env 환경 변수 설정
+
+- AWS 접근 키, S3 버킷, SNS 토픽 정보 등 외부 노출 없이 안전하게 관리
+
+
+🗳 Flask 웹앱 구현 (app.py)
+
+- 투표 항목 선택 후 SQLite에 저장
+
+- CloudWatch Logs로 로그 출력
+
+- SNS로 알림 전송 (boto3 사용)
+
+
+🧾 주기적 백업 (backup.py)
+
+- DB → JSON 변환 후 S3 업로드
+
+- 웹앱 컨테이너 내부에서 threading.Timer()로 1시간마다 실행되도록 구성
+
+
 
 ## ⚙️ 실행 전 준비사항
 
@@ -52,9 +83,17 @@ docker compose run vote_backup
 ```
 
 ## 🧪 확인 방법
-- CloudWatch Logs: AWS Console → CloudWatch → 로그 그룹 vote-app-logs
-- S3 Backup: AWS Console → S3 → vote-backup-eunseo 버킷 → backup/ 폴더 확인
-- SNS 알림: 이메일 구독을 완료했다면, 투표 시 메일 도착 확인
+- **CloudWatch Logs**
+
+    AWS Console → CloudWatch → 로그 그룹 vote-app-logs
+  
+- **S3 Backup**
+
+  WS Console → S3 → vote-backup-eunseo 버킷 → backup/ 폴더 확인
+
+- **SNS 알림**
+
+   이메일 구독을 완료했다면, 투표 시 메일 도착 확인
 
 ## 🧹 정리 명령어
 ```bash
