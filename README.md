@@ -56,8 +56,6 @@ docker compose run vote_backup
 - S3 Backup: AWS Console → S3 → vote-backup-eunseo 버킷 → backup/ 폴더 확인
 - SNS 알림: 이메일 구독을 완료했다면, 투표 시 메일 도착 확인
 
----
-
 ## 🧹 정리 명령어
 ```bash
 docker compose down
