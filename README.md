@@ -67,6 +67,14 @@ SNS_TOPIC_ARN=arn:aws:sns:ap-northeast-2:계정ID:vote-app-topic
 
 ## 🚀 실행 방법
 
+docker desktop 실행
+
+
+```bash
+git clone https://github.com/eunseojang/cloud_computing
+cd vote_app
+```
+
 ### 1. 전체 컨테이너 빌드 및 실행
 
 ```bash
